@@ -1,8 +1,17 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index a0318b9..b1d8511 100644
+index a0318b9..d89ed98 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -48,9 +48,9 @@ else()
+@@ -19,6 +19,8 @@ endif()
+ message (STATUS "Installation path will be ${CMAKE_INSTALL_PREFIX}")
+ include(GNUInstallDirs)
+ 
++set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
++
+ if(PYSTRING_HEADER_ONLY)
+     message(STATUS "Building pystring as header-only library")
+     add_library(pystring INTERFACE)
+@@ -48,9 +50,9 @@ else()
      )
  
      install(TARGETS pystring
