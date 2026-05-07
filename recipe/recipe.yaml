@@ -3,7 +3,7 @@ schema_version: 1
 context:
   name: pystring
   version: "1.1.5"
-  build_number: 0
+  build_number: 1
 
 package:
   name: ${{ name|lower }}
@@ -27,21 +27,23 @@ requirements:
       then:
         - make
     - ninja
+  run_exports:
+    - ${{ pin_subpackage(name, upper_bound='x') }}
 
 tests:
-  - script:
-      - if: unix or osx
-        then:
-          - test -f $PREFIX/lib/libpystring${SHLIB_EXT}
-      - if: win
-        then:
-          - if not exist %LIBRARY_BIN%\pystring.dll exit 1
+  - package_contents:
+      strict: true
+      include:
+        - pystring/**
+      lib:
+        - pystring
 
 about:
   homepage: https://github.com/imageworks/pystring
   license: BSD-3-Clause
   license_file: LICENSE
   summary: C++ functions matching the interface and behavior of python string methods with std::string
+  repository: https://github.com/imageworks/pystring
   description: |
     Pystring is a collection of C++ functions which match the interface and
     behavior of python's string class methods using std::string. Implemented in

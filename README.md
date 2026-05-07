@@ -9,6 +9,8 @@ Package license: BSD-3-Clause
 
 Summary: C++ functions matching the interface and behavior of python string methods with std::string
 
+Development: https://github.com/imageworks/pystring
+
 Pystring is a collection of C++ functions which match the interface and
 behavior of python's string class methods using std::string. Implemented in
 C++, it does not require or make use of a python interpreter. It provides
