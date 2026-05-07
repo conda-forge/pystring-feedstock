@@ -36,12 +36,7 @@ tests:
       include:
         - pystring/**
       lib:
-        - if: win
-          then: pystring.lib
-          else: pystring
-      bin:
-        - if: win
-          then: pystring.dll
+        - pystring
 
 about:
   homepage: https://github.com/imageworks/pystring
